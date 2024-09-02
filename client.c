@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:27:11 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/09/02 13:29:05 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:16:43 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include <signal.h>
-#include "./ft_printf/ft_printf.h"
-#include "./libft/libft.h"
+#include "libft/libft.h"
 
-void	send_signal(pid_t server_pid, char c)
+void	send_signal(int server_pid, char c)
 {
-	int bits;
+	int	bits;
 
 	bits = 7;
 	while (bits >= 0)
@@ -34,7 +31,7 @@ void	send_signal(pid_t server_pid, char c)
 
 int	main(int argc, char *argv[])
 {
-	pid_t	serverpid;
+	int		serverpid;
 	char	*str;
 	int		cnt;
 
