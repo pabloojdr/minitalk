@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Invalid number of arguments\n");
+		ft_printf("Invalid number of arguments\n");
 		return (0);
 	}
 	serverpid = ft_atoi(argv[1]);
