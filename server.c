@@ -13,21 +13,22 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <signal.h>
-
-unsigned char	g_char = 0;
+#include "./ft_printf/ft_printf.h"
 
 void	sig_handler(int signo)
 {
-	static char	bit_count;
+	static char	currentchar = 0;
+	static char	bitcount = 0;
 
-	g_char <<= 1;
+	currentchar <<= 1;
 	if (signo == SIGUSR2)
-		g_char |= 1;
-	bit_count++;
-	if (bit_count == 8)
+		currentchar |= 1;
+	bitcount++;
+	if (bitcount == 8)
 	{
-		printf("%c", g_char);
-		bit_count = 0;
+		ft_printf("%c", currentchar);
+		currentchar = 0;
+		bitcount = 0;
 	}
 }
 
@@ -36,7 +37,7 @@ int	main(int argc, char *argv[])
 	int	pid;
 
 	pid = getpid();
-	printf("Server PID: %i\n", pid);
+	ft_printf("Server PID: %i\n", pid);
 	signal(SIGUSR1, sig_handler);
 	signal(SIGUSR2, sig_handler);
 	
