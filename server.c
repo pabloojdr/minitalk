@@ -6,7 +6,7 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:27:11 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/09/02 17:24:25 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:36:25 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sig_handler(int signo)
 	}
 }
 
-int	main()
+int	main(void)
 {
 	int	pid;
 
