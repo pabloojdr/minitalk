@@ -6,14 +6,12 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:27:11 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/09/02 13:29:05 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:24:25 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
 #include <signal.h>
-#include "./ft_printf/ft_printf.h"
+#include "libft/libft.h"
 
 void	sig_handler(int signo)
 {
@@ -32,7 +30,7 @@ void	sig_handler(int signo)
 	}
 }
 
-int	main(int argc, char *argv[])
+int	main()
 {
 	int	pid;
 
@@ -40,7 +38,6 @@ int	main(int argc, char *argv[])
 	ft_printf("Server PID: %i\n", pid);
 	signal(SIGUSR1, sig_handler);
 	signal(SIGUSR2, sig_handler);
-	
 	while (1)
 	{
 		pause();
