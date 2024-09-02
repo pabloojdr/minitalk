@@ -22,34 +22,31 @@ OBJ_SBONUS = $(SRC_SBONUS:.c=.o)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 bonus:  all client_bonus server_bonus
-client_bonus: ft_printf libft $(OBJ_CBONUS)
-	@ $(CC) $(FLAGS) -o $(NAME_CBONUS) $(OBJ_CBONUS) libft/*.o ft_printf/*.o
+client_bonus: libft $(OBJ_CBONUS)
+	@ $(CC) $(FLAGS) -o $(NAME_CBONUS) $(OBJ_CBONUS) libft/*.o
 
-server_bonus: ft_printf libft $(OBJ_SBONUS)
-	@ $(CC) $(FLAGS) -o $(NAME_SBONUS) $(OBJ_SBONUS) libft/*.o ft_printf/*.o
+server_bonus: libft $(OBJ_SBONUS)
+	@ $(CC) $(FLAGS) -o $(NAME_SBONUS) $(OBJ_SBONUS) libft/*.o
 
 all: client server
-server: ft_printf libft $(OBJ_S)
-	@ $(CC) $(FLAGS) -o $(NAME_S) $(OBJ_S) libft/*.o ft_printf/*.o
+server: libft $(OBJ_S)
+	@ $(CC) $(FLAGS) -o $(NAME_S) $(OBJ_S) libft/*.o
 
-client: ft_printf libft $(OBJ_C)
-	@ $(CC) $(FLAGS) -o $(NAME_C) $(OBJ_C) libft/*.o ft_printf/*.o
+client: libft $(OBJ_C)
+	@ $(CC) $(FLAGS) -o $(NAME_C) $(OBJ_C) libft/*.o
 
 libft:
 	@ make -C libft/
 
-ft_printf:
-	@ make -C ft_printf/
-
 clean:
 	@ $(RM) $(OBJ_S) $(OBJ_C) $(OBJ_SBONUS) $(OBJ_CBONUS)
 	@ make -C libft/ clean
-	@ make -C ft_printf/ clean
+
 
 fclean: clean
 	@ $(RM) $(NAME_S) $(NAME_C) $(NAME_SBONUS) $(NAME_CBONUS)
 	@ make -C libft/ fclean
-	@ make -C ft_printf/ fclean
+
 
 re: fclean all
 
