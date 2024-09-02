@@ -6,7 +6,7 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:28:55 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/04/11 13:49:41 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:05:24 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	posh;
 	size_t	posn;
-	char	*tmph;
 
 	if (*needle == '\0')
 		return ((char *) haystack);
 	posh = 0;
-	tmph = (char *)haystack;
 	while (haystack[posh])
 	{
 		if (posh > len)
