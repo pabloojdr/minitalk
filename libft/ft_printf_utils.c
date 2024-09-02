@@ -6,11 +6,11 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 19:16:42 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/08/23 20:48:48 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:14:03 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putchar(char c)
 {

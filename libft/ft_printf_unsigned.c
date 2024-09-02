@@ -6,11 +6,11 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 22:04:28 by marvin            #+#    #+#             */
-/*   Updated: 2024/08/23 19:15:22 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/09/02 17:13:57 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	digits_unsigned(unsigned int n)
 {
