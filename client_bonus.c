@@ -6,7 +6,7 @@
 /*   By: pabloojdr <pabloojdr@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 22:36:27 by pabloojdr         #+#    #+#             */
-/*   Updated: 2024/10/11 23:32:59 by pabloojdr        ###   ########.fr       */
+/*   Updated: 2024/10/12 00:10:47 by pabloojdr        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,21 @@ void	send_signal(int server_pid, const char *utf8_char)
 			kill(server_pid, SIGUSR2);
 		else
 			kill(server_pid, SIGUSR1);
-		usleep(100);
+		usleep(1500);
 		bits--;
 	}
 }
 
 void	confirmation_handler(int sig)
 {
-	if (sig == SIGUSR1)
-		ft_printf("Confirmacion recibida: bit 0\n");
-	else if (sig == SIGUSR2)
-		ft_printf("Confirmacion recibida: bit 1\n");
+	static int 	cnt;
+	if (sig == SIGUSR1){
+		cnt++;
+		if (cnt == 1)
+			ft_printf("Confirmacion recibida. Se ha escrito: 1 caracter.\n");
+		else
+			ft_printf("Confirmacion recibida. Se han escrito: %i caracteres.\n", cnt);
+	}
 }
 
 int	main(int argc, char *argv[])
