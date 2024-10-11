@@ -6,7 +6,7 @@
 /*   By: pabloojdr <pabloojdr@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 22:19:17 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/11 23:02:34 by pabloojdr        ###   ########.fr       */
+/*   Updated: 2024/10/11 23:45:58 by pabloojdr        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	sig_handler(int sig, siginfo_t *info, void *ucontext)
 {
-	static char	currentchar = 0;
-	static char	bitcount = 0;
+	static unsigned char	currentchar = 0;
+	static int				bitcount;
 
 	(void) ucontext;
 	currentchar <<= 1;
@@ -29,6 +29,8 @@ void	sig_handler(int sig, siginfo_t *info, void *ucontext)
 		currentchar = 0;
 		bitcount = 0;
 	}
+	else
+		currentchar <<= 1;
 	if (sig == SIGUSR1)
     	kill(info->si_pid,SIGUSR1);
 	else if (sig == SIGUSR2)
@@ -37,8 +39,8 @@ void	sig_handler(int sig, siginfo_t *info, void *ucontext)
 
 int	main(void)
 {
-	int	pid;
     struct  sigaction sa;
+	int	pid;
 
 	pid = getpid();
 	ft_printf("Server PID: %i\n", pid);

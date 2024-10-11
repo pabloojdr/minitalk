@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pabloojdr <pabloojdr@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:27:11 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/09/02 17:36:25 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/10/11 23:52:31 by pabloojdr        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	sig_handler(int signo)
 {
 	static char	currentchar = 0;
-	static char	bitcount = 0;
+	static int	bitcount;
 
 	currentchar <<= 1;
 	if (signo == SIGUSR2)
