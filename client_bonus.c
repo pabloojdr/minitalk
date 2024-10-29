@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pabloojdr <pabloojdr@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 22:36:27 by pabloojdr         #+#    #+#             */
-/*   Updated: 2024/10/12 00:10:47 by pabloojdr        ###   ########.fr       */
+/*   Updated: 2024/10/29 20:13:21 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	send_signal(int server_pid, const char *utf8_char)
 {
-	int	bits;
-	unsigned char c;
-	
+	int				bits;
+	unsigned char	c;
+
 	c = *utf8_char;
 	bits = 7;
 	while (bits >= 0)
@@ -26,20 +26,23 @@ void	send_signal(int server_pid, const char *utf8_char)
 			kill(server_pid, SIGUSR2);
 		else
 			kill(server_pid, SIGUSR1);
-		usleep(1500);
+		usleep(300);
 		bits--;
 	}
 }
 
 void	confirmation_handler(int sig)
 {
-	static int 	cnt;
-	if (sig == SIGUSR1){
+	static int	cnt;
+
+	if (sig == SIGUSR1)
+	{
 		cnt++;
 		if (cnt == 1)
 			ft_printf("Confirmacion recibida. Se ha escrito: 1 caracter.\n");
 		else
-			ft_printf("Confirmacion recibida. Se han escrito: %i caracteres.\n", cnt);
+			ft_printf("Confirmacion recibida."
+				"Se han escrito: %i caracteres.\n", cnt);
 	}
 }
 
@@ -62,5 +65,4 @@ int	main(int argc, char *argv[])
 	while (str[cnt] != 0)
 		send_signal(serverpid, &str[cnt++]);
 	return (0);
-	
 }
