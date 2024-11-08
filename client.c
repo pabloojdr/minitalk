@@ -6,7 +6,7 @@
 /*   By: pcampoy- <pcampoy-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 12:27:11 by pcampoy-          #+#    #+#             */
-/*   Updated: 2024/10/29 20:07:59 by pcampoy-         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:43:22 by pcampoy-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	send_signal(int server_pid, char c)
 			kill(server_pid, SIGUSR2);
 		else
 			kill(server_pid, SIGUSR1);
-		usleep(300);
+		usleep(350);
 		bits--;
 	}
 }
